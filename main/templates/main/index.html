@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% if user.is_authenticated %}
+    <div class="col-12 text-center">
+      <h1 class="my-4">Добро пожаловать на сайт!</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mx-auto">
+      <p class="mb-5">Вы авторизованы как пользователь с логином: {{ user.username }}</p>
+    </div>
+    {% else %}
+      <div class="col-12 text-center">
+      <h1 class="my-4">Главная страница неавторизованного пользователя</h1>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}
